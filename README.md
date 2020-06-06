@@ -21,7 +21,7 @@ dotnet add package BlazorCaptcha
 For client-side and server-side Blazor - add script section to _Host.cshtml (head section)
 
 ```html
-<link href="_content/BlazorCaptcha/captcha.css" rel="stylesheet" /
+<link href="_content/BlazorCaptcha/captcha.css" rel="stylesheet" />
 ```
 
 ## Usage
