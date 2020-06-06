@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
     <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://github.com/tossnet/Blazor-Captcha</PackageProjectUrl>
@@ -10,21 +10,21 @@
     <Authors>Christophe Peugnet</Authors>
     <Company>Christophe PeugnetChristophe Peugnet</Company>
     <Description>Generates a captcha image for a Blazor Server application</Description>
-    <PackageReleaseNotes>Generates a captcha image for a Blazor Server application</PackageReleaseNotes>
+    <PackageReleaseNotes>.</PackageReleaseNotes>
     <PackageIcon>icon.png</PackageIcon>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Remove="wwwroot\refresh.svg" />
-  </ItemGroup>
+
 
   <ItemGroup>
     <None Include="icon.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="wwwroot\refresh.svg" />
+    <EmbeddedResource Include="wwwroot\refresh.svg" />
   </ItemGroup>
 
 

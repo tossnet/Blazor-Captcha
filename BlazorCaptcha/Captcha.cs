@@ -19,7 +19,6 @@ namespace BlazorCaptcha
         public EventCallback<MouseEventArgs> OnRefresh { get; set; }
 
 
-
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
             int width = 170;
@@ -79,15 +78,11 @@ namespace BlazorCaptcha
             builder.OpenElement(++seq, "img");
             builder.AddAttribute(++seq, "src", img);
             builder.CloseElement(); // img
-            //<button class="btn btn-sm width-min btn-success">OK</button>
             builder.OpenElement(++seq, "button");
-            builder.AddAttribute(++seq, "class", "btn btn-sm btn-refresh");
+            builder.AddAttribute(++seq, "class", "btn btn-refresh");
             builder.AddAttribute(++seq, "onclick", EventCallback.Factory.Create<MouseEventArgs>(this, OnRefresh));
-            builder.OpenElement(++seq, "span");
-            builder.AddAttribute(++seq, "class", "glyphicon glyphicon-refresh");
-            builder.CloseElement(); // span
-            builder.CloseElement(); //button
-            builder.CloseElement();
+            builder.CloseElement(); // button
+            builder.CloseElement(); // div
 
 
             base.BuildRenderTree(builder);
