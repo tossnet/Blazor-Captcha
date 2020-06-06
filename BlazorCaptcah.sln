@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.36
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCaptcha", "BlazorCaptcah\BlazorCaptcha.csproj", "{25F14799-2E42-41B6-90D1-C9FEBCE11A90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor-Captcha-Test", "BlazorCaptcah\Blazor-Captcha-Test.csproj", "{25F14799-2E42-41B6-90D1-C9FEBCE11A90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

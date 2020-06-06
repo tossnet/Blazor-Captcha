@@ -1,0 +1,17 @@
+﻿
+.btn-refresh {
+    border: none;
+    background-color: gainsboro;
+    padding: 2px 2px 2px 4px;
+    font-size: 16px;
+    height:20px;
+    vertical-align: sub;
+}
+
+    .btn-refresh:before {
+        content: url(refresh.svg);
+        width: 15px;
+        float: left;
+        margin-right: 5px;
+        margin-top: -2px;
+    }

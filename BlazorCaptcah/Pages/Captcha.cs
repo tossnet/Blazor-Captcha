@@ -1,17 +1,23 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
+using Microsoft.AspNetCore.Components.Web;
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Threading.Tasks;
 
-namespace BlazorCaptcha.Pages
+namespace BlazorCaptchaTest.Pages
 {
     public class Captcha : ComponentBase
     {
 
         [Parameter]
         public string CaptchaWord { get; set; }
+
+        [Parameter]
+        public EventCallback<MouseEventArgs> OnRefresh { get; set; }
+
 
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
@@ -72,9 +78,16 @@ namespace BlazorCaptcha.Pages
             builder.OpenElement(++seq, "div");
             builder.OpenElement(++seq, "img");
             builder.AddAttribute(++seq, "src", img);
+            builder.CloseElement(); // img
+            //<button class="btn btn-sm width-min btn-success">OK</button>
+            builder.OpenElement(++seq, "button");
+            builder.AddAttribute(++seq, "class", "btn btn-sm btn-refresh");
+            builder.AddAttribute(++seq, "onclick", EventCallback.Factory.Create<MouseEventArgs>(this, OnRefresh));
+            builder.OpenElement(++seq, "span");
+            builder.AddAttribute(++seq, "class", "glyphicon glyphicon-refresh");
+            builder.CloseElement(); // span
+            builder.CloseElement(); //button
             builder.CloseElement();
-            builder.CloseElement();
-
 
 
             base.BuildRenderTree(builder);
