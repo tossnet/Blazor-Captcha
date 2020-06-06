@@ -5,9 +5,9 @@ using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Threading.Tasks;
 
-namespace BlazorCaptchaTest.Pages
+
+namespace BlazorCaptcha
 {
     public class Captcha : ComponentBase
     {
@@ -92,6 +92,8 @@ namespace BlazorCaptchaTest.Pages
 
             base.BuildRenderTree(builder);
         }
+
     }
 }
+    
 

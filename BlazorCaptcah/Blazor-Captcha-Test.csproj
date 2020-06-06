@@ -6,15 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\css\refresh.svg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\css\refresh.svg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+    <ProjectReference Include="..\BlazorCaptcha\BlazorCaptcha.csproj" />
   </ItemGroup>
 
 </Project>
