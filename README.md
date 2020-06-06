@@ -7,7 +7,7 @@ Generates a captcha image for a Blazor Server application.
 
 
 # Installation
-Latest version in here: [![NuGet](https://img.shields.io/nuget/v/BlazorColorPicker.svg)](https://www.nuget.org/packages/BlazorColorPicker/)
+Latest version in here: [![NuGet](https://img.shields.io/nuget/v/BlazorCaptcha.svg)](https://www.nuget.org/packages/BlazorCaptcha/)
 
 To Install
 
