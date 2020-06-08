@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30128.36
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor-Captcha-Test", "BlazorCaptcha-Test\Blazor-Captcha-Test.csproj", "{25F14799-2E42-41B6-90D1-C9FEBCE11A90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCaptcha", "BlazorCaptcha\BlazorCaptcha.csproj", "{C7C98B4F-68A4-40B4-A1BA-A095AB20DB07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCaptcha", "BlazorCaptcha\BlazorCaptcha.csproj", "{C7C98B4F-68A4-40B4-A1BA-A095AB20DB07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
