@@ -52,15 +52,9 @@
     private bool valided = false;
     private FormModel formModel = new FormModel();
 
-    private void NewCaptchaEvent()
-    {
-       Captcha = BlazorCaptcha.Tools.GetCaptchaWord(CaptchaLetters);
-    }
-
-
     protected override Task OnInitializedAsync()
     {
-        NewCaptchaEvent();
+       Captcha = BlazorCaptcha.Tools.GetCaptchaWord(CaptchaLetters);
 
         return base.OnInitializedAsync();
     }

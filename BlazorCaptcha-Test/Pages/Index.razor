@@ -10,17 +10,10 @@
 @code{
     private string Captcha  { get; set; } = "";
     private int CaptchaLetters = 5;
-
-    private void NewCaptchaEvent()
-    {
-        Captcha = BlazorCaptcha.Tools.GetCaptchaWord(CaptchaLetters);
-    }
-
-
+    
     protected override Task OnInitializedAsync()
     {
-        NewCaptchaEvent();
-
+        Captcha = BlazorCaptcha.Tools.GetCaptchaWord(CaptchaLetters);
         return base.OnInitializedAsync();
     }
 }
