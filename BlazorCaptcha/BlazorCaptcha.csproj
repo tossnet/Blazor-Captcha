@@ -3,18 +3,23 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
-    <Copyright>Copyright 2020</Copyright>
+    <Copyright>Copyright 2020-2021</Copyright>
     <PackageProjectUrl>https://github.com/tossnet/Blazor-Captcha</PackageProjectUrl>
     <RepositoryUrl>https://github.com/tossnet/Blazor-Captcha</RepositoryUrl>
     <PackageTags>Blazor, captcha</PackageTags>
     <Authors>Christophe Peugnet</Authors>
-    <Company>Christophe PeugnetChristophe Peugnet</Company>
+    <Company>Christophe Peugnet</Company>
     <Description>Generates a captcha image for a Blazor Server application</Description>
-    <PackageReleaseNotes>.</PackageReleaseNotes>
+    <PackageReleaseNotes>New : Add With, Heigth Parameter
+
+breaking change :
+1.0.1 to 1.1.0 :
+change the parameter "CaptchaWord" =&gt; "@bind-CaptchaWord"
+add the parameter with the length of the word ex : "CharNumber="@CaptchaLetters"</PackageReleaseNotes>
     <PackageIcon>icon.png</PackageIcon>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
   </PropertyGroup>
 
 

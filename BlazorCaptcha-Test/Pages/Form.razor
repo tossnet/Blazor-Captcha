@@ -16,7 +16,7 @@
                 <div class="form-group row">
                     <label class=" col-sm-2 row"></label>
                     <div class="col-sm-4">
-                        <Captcha CaptchaWord="@Captcha" OnRefresh="NewCaptchaEvent" />
+                        <Captcha @bind-CaptchaWord="@Captcha" CharNumber="@CaptchaLetters" />
                     </div>
                 </div>
                 <div class="form-group row">
@@ -44,17 +44,17 @@
 
      </div>
 
-<p>@returned</p>
+<p>@Captcha</p>
 
 @code{
     private string Captcha = "";
-    private string returned = "";
+    private int CaptchaLetters = 5;
     private bool valided = false;
     private FormModel formModel = new FormModel();
 
     private void NewCaptchaEvent()
     {
-        Captcha = BlazorCaptcha.Tools.GetCaptchaWord(5);
+       Captcha = BlazorCaptcha.Tools.GetCaptchaWord(CaptchaLetters);
     }
 
 

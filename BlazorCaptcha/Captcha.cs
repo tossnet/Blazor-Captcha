@@ -2,10 +2,11 @@
 using Microsoft.AspNetCore.Components.Rendering;
 using Microsoft.AspNetCore.Components.Web;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-
+using System.Threading.Tasks;
 
 namespace BlazorCaptcha
 {
@@ -13,57 +14,122 @@ namespace BlazorCaptcha
     {
 
         [Parameter]
-        public string CaptchaWord { get; set; }
+        public int Width { get; set; } = 170;
+
+        [Parameter]
+        public int Height { get; set; } = 40;
+
+        [Parameter]
+        public int CharNumber { get; set; } = 5;
 
         [Parameter]
         public EventCallback<MouseEventArgs> OnRefresh { get; set; }
 
+        private string _captchaWord;
+        [Parameter]
+        public string CaptchaWord {
+            get
+            {
+                return _captchaWord;
+            }
+            set {
+                if (_captchaWord != value )
+                {
+                    _captchaWord = value;
+                    Initialization();
+                }
+            }
+
+        }
+
+        [Parameter]
+        public EventCallback<string> CaptchaWordChanged { get; set; }
+
+        private async Task OnRefreshInternal()
+        {
+            CaptchaWord = Tools.GetCaptchaWord(CharNumber);
+            Initialization();
+            await CaptchaWordChanged.InvokeAsync(CaptchaWord);
+        }
+
+        private Random RandomValue { get; set; }
+        private List<Letter> Letters;
+        private Color _BackgroundColor;
+
+        public Captcha()
+        {
+            Initialization();
+        }
+
+
+        private void Initialization()
+        {
+            if (String.IsNullOrEmpty(CaptchaWord)) return;
+
+            RandomValue = new Random();
+
+            _BackgroundColor = Color.FromArgb(RandomValue.Next(100, 256), RandomValue.Next(100, 256), RandomValue.Next(100, 256)); ;
+
+            var fontFamilies = new string[] { "Courier", "Arial", "Verdana", "Times New Roman" };
+
+            Letters = new List<Letter>();
+
+            if (!String.IsNullOrEmpty(CaptchaWord))
+            {
+                foreach (char c in CaptchaWord)
+                {
+                    var letter = new Letter
+                    {
+                        Value = c.ToString(),
+                        Angle = RandomValue.Next(-20, 20),
+                        ForeColor = Color.FromArgb(RandomValue.Next(256), RandomValue.Next(256), RandomValue.Next(256)),
+                        Family = fontFamilies[RandomValue.Next(0, fontFamilies.Length)],
+                    };
+                    letter.Font =  new Font(letter.Family, RandomValue.Next(Height / 2, (Height / 2) + (Height / 4)), FontStyle.Bold);
+
+                    Letters.Add(letter);
+                }
+            }
+
+        }
+
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
-            int width = 170;
-            int height = 40;
-            var fontFamilies = new string[] { "Courier", "Arial", "Verdana", "Times New Roman" };
-            var rnd = new Random();
+            if (RandomValue == null) return;
+            if (String.IsNullOrEmpty(CaptchaWord)) return;
 
-            Bitmap bmp = new Bitmap(width, height);
+            Bitmap bmp = new Bitmap(Width, Height);
             Graphics g = Graphics.FromImage(bmp);
 
-            g.Clear(Color.FromArgb(rnd.Next(100, 256), rnd.Next(100, 256), rnd.Next(100, 256)));
+            g.Clear(_BackgroundColor);
 
             var foreColor = Color.LightGray;
             var pen = new Pen(foreColor, 2.0f);
-            g.DrawRectangle(pen, 0, 0, width, height);
+            g.DrawRectangle(pen, 0, 0, Width, Height);
 
             float x = 2;
 
-            foreach (char c in CaptchaWord)
+            foreach (Letter l in Letters)
             {
-                var family = fontFamilies[rnd.Next(0, fontFamilies.Length)];
-                var fontcolor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
-                var font = new Font(family, rnd.Next(height / 2, (height / 2) + (height / 4)), FontStyle.Bold);
+                SizeF textSize = g.MeasureString(l.Value, l.Font);
 
-                SizeF textSize = g.MeasureString(c.ToString(), font);
-
-                var angle = rnd.Next(-20, 20);
-                var y = ((height - textSize.Height) / 2);
+                var y = ((Height - textSize.Height) / 2);
 
                 g.TranslateTransform(x, y);
-                g.RotateTransform(angle);
-
-                g.DrawString(c.ToString(), font, new SolidBrush(fontcolor), 0, 0);
-
+                g.RotateTransform(l.Angle);
+                g.DrawString(l.Value, l.Font, new SolidBrush(l.ForeColor), 0, 0);
                 g.ResetTransform();
 
                 x += textSize.Width;
             }
 
-            foreColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+            foreColor = Color.FromArgb(RandomValue.Next(256), RandomValue.Next(256), RandomValue.Next(256));
 
             pen = new Pen(foreColor, 0.8f);
-            g.DrawEllipse(pen, rnd.Next(-width, width), rnd.Next(-height, height), width, height);
-            g.DrawLine(pen, 0, rnd.Next(0, height), width, rnd.Next(0, height));
-            g.DrawLine(pen, 0, rnd.Next(0, height), width, rnd.Next(0, height));
+            g.DrawEllipse(pen, RandomValue.Next(-Width, Width), RandomValue.Next(-Height, Height), Width, Height);
+            g.DrawLine(pen, 0, RandomValue.Next(0, Height), Width, RandomValue.Next(0, Height));
+            g.DrawLine(pen, 0, RandomValue.Next(0, Height), Width, RandomValue.Next(0, Height));
 
 
             MemoryStream ms = new MemoryStream();
@@ -75,20 +141,28 @@ namespace BlazorCaptcha
 
             var seq = 0;
             builder.OpenElement(++seq, "div");
-            builder.OpenElement(++seq, "img");
-            builder.AddAttribute(++seq, "src", img);
-            builder.CloseElement(); // img
-            builder.OpenElement(++seq, "button");
-            builder.AddAttribute(++seq, "class", "btn btn-refresh");
-            builder.AddAttribute(++seq, "onclick", EventCallback.Factory.Create<MouseEventArgs>(this, OnRefresh));
-            builder.CloseElement(); // button
-            builder.CloseElement(); // div
+            {
+                builder.OpenElement(++seq, "img");
+                builder.AddAttribute(++seq, "src", img);
+                builder.CloseElement(); 
+
+                builder.OpenElement(++seq, "button");
+                {
+                    builder.AddAttribute(++seq, "class", "btn btn-refresh");
+                    //builder.AddAttribute(++seq, "onclick", EventCallback.Factory.Create<MouseEventArgs>(this, OnRefresh));
+                    builder.AddAttribute(++seq, "onclick", EventCallback.Factory.Create<MouseEventArgs>(this, () => OnRefreshInternal()));
+                }
+                builder.CloseElement(); 
+            }
+            builder.CloseElement();
 
 
             base.BuildRenderTree(builder);
         }
 
     }
+
+
 }
     
 

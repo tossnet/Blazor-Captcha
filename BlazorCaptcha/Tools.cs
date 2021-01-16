@@ -7,14 +7,13 @@ namespace BlazorCaptcha
     {
         public static string GetCaptchaWord(int length)
         {
-            Random random = new Random(System.DateTime.Now.Millisecond);
+            var random = new Random(DateTime.Now.Millisecond);
 
-            const string chars = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789";
+            const string chars = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789*#!$%=";
             string cw = new string(Enumerable.Repeat(chars, length)
               .Select(s => s[random.Next(s.Length)]).ToArray());
 
             return cw;
         }
     }
-   
 }
