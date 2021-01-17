@@ -44,7 +44,7 @@ For client-side and server-side Blazor - add script section to _Host.cshtml (hea
 
     protected override Task OnInitializedAsync()
     {
-        Captcha = BlazorCaptcha.Tools.GetCaptchaWord(5);
+        Captcha = BlazorCaptcha.Tools.GetCaptchaWord(CaptchaLetters);
 
         return base.OnInitializedAsync();
     }
