@@ -34,25 +34,24 @@ For client-side and server-side Blazor - add script section to _Host.cshtml (hea
 <h3>Hello, world!</h3>
 
 
-<Captcha CaptchaWord="@Captcha" OnRefresh="NewCaptchaEvent" />
+<Captcha @bind-CaptchaWord="@Captcha" CharNumber="@CaptchaLetters" />
 
 <p>@Captcha</p>
 
 @code{
     private string Captcha = "";
-
-    private void NewCaptchaEvent()
-    {
-        Captcha = BlazorCaptcha.Tools.GetCaptchaWord(5);
-    }
-
+    private int CaptchaLetters = 5;
 
     protected override Task OnInitializedAsync()
     {
-        NewCaptchaEvent();
+        Captcha = BlazorCaptcha.Tools.GetCaptchaWord(CaptchaLetters);
 
         return base.OnInitializedAsync();
     }
 }
 ```
 
+# Breaking Change version 1.0.1 to 1.1.0
+- Change the parameter "CaptchaWord" => "@bind-CaptchaWord"
+- Add the parameter with the length of the word ex : "CharNumber="@CaptchaLetters"
+- Remove the "OnRefresh" parameter
