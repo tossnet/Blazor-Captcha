@@ -6,7 +6,7 @@
         <h3>Account recovery</h3>
         @if (valided == false)
         {
-            <EditForm Model="@formModel" OnValidSubmit="@HandleValidSubmit">
+            <EditForm Model="@formModel" OnValidSubmit="@HandleValidSubmit" onkeydown="return event.keyCode !== 13">
                 <div class="form-group row">
                     <label for="idName" class="col-sm-2 row">Name</label>
                     <div class="col-sm-4">

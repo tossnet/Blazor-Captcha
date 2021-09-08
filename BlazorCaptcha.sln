@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor-Captcha-Test", "Blaz
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCaptcha", "BlazorCaptcha\BlazorCaptcha.csproj", "{C7C98B4F-68A4-40B4-A1BA-A095AB20DB07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor-Wasm-Captcha-Test", "Blazor-Wasm-Captcha-Test\Blazor-Wasm-Captcha-Test.csproj", "{64326818-5E84-49A0-BF87-2D2D10DD2258}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C7C98B4F-68A4-40B4-A1BA-A095AB20DB07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7C98B4F-68A4-40B4-A1BA-A095AB20DB07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7C98B4F-68A4-40B4-A1BA-A095AB20DB07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64326818-5E84-49A0-BF87-2D2D10DD2258}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64326818-5E84-49A0-BF87-2D2D10DD2258}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64326818-5E84-49A0-BF87-2D2D10DD2258}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64326818-5E84-49A0-BF87-2D2D10DD2258}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
