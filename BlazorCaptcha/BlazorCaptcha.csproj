@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+	  <LangVersion>9.0</LangVersion>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
     <Copyright>Copyright 2020-2021</Copyright>
     <PackageProjectUrl>https://github.com/tossnet/Blazor-Captcha</PackageProjectUrl>
@@ -23,6 +24,10 @@ add the parameter with the length of the word ex : "CharNumber="@CaptchaLetters"
     <FileVersion>1.1.0.0</FileVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\refresh.svg" />
+  </ItemGroup>
+
 
 
   <ItemGroup>
@@ -30,14 +35,19 @@ add the parameter with the length of the word ex : "CharNumber="@CaptchaLetters"
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <EmbeddedResource Include="wwwroot\refresh.svg" />
   </ItemGroup>
 
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.3" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.0-preview.140" />
     <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Resource Include="wwwroot\refresh.svg" />
   </ItemGroup>
 
 </Project>

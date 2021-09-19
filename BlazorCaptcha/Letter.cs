@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+﻿using SkiaSharp;
 
 namespace BlazorCaptcha
 {
@@ -6,8 +6,7 @@ namespace BlazorCaptcha
     {
         public int Angle { get; set; }
         public string Value { get; set; }
-        public Font Font { get; set; }
-        public Color ForeColor { get; set; }
+        public SKColor ForeColor { get; set; }
         public string Family { get; set; }
     }
 }
