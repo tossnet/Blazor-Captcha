@@ -165,6 +165,7 @@ namespace BlazorCaptcha
                 builder.OpenElement(++seq, "button");
                 {
                     builder.AddAttribute(++seq, "class", "btn btn-refresh");
+                    builder.AddAttribute(++seq, "type", "button");
                     builder.AddAttribute(++seq, "onclick", EventCallback.Factory.Create<MouseEventArgs>(this, () => OnRefreshInternal()));
                 }
                 builder.CloseElement(); 
