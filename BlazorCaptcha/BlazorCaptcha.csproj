@@ -1,28 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  <PropertyGroup>
-	  <LangVersion>9.0</LangVersion>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RazorLangVersion>3.0</RazorLangVersion>
-    <Copyright>Copyright 2020-2021</Copyright>
-    <PackageProjectUrl>https://github.com/tossnet/Blazor-Captcha</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/tossnet/Blazor-Captcha</RepositoryUrl>
-    <PackageTags>Blazor, captcha</PackageTags>
-    <Authors>Christophe Peugnet</Authors>
-    <Company>Christophe Peugnet</Company>
-    <Description>Generates a captcha image for a Blazor Server application</Description>
-    <PackageReleaseNotes>New : Add With, Heigth Parameter
-
-breaking change :
-1.0.1 to 1.1.0 :
-change the parameter "CaptchaWord" =&gt; "@bind-CaptchaWord"
-add the parameter with the length of the word ex : "CharNumber="@CaptchaLetters"</PackageReleaseNotes>
-    <PackageIcon>icon.png</PackageIcon>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.0</Version>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Copyright>Copyright 2020-2022</Copyright>
+		<PackageProjectUrl>https://github.com/tossnet/Blazor-Captcha</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/tossnet/Blazor-Captcha</RepositoryUrl>
+		<PackageTags>Blazor, captcha</PackageTags>
+		<Authors>Christophe Peugnet</Authors>
+		<Company>Christophe Peugnet</Company>
+		<Description>Generates a captcha image for a Blazor Server application</Description>
+		<PackageReleaseNotes>
+			change : NET6, change CSS style of the button (removal of the bootstrap style)
+		</PackageReleaseNotes>
+		<PackageIcon>icon.png</PackageIcon>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Version>1.2.0</Version>
+		<AssemblyVersion>1.2.0.0</AssemblyVersion>
+		<FileVersion>1.2.0.0</FileVersion>
+	</PropertyGroup>
 
   <ItemGroup>
     <Content Remove="wwwroot\refresh.svg" />
@@ -39,10 +34,10 @@ add the parameter with the length of the word ex : "CharNumber="@CaptchaLetters"
 
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.3" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.3" />
-    <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.0-preview.140" />
-    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.2" />
+    <PackageReference Include="SkiaSharp" Version="2.88.0-preview.187" />
+    <PackageReference Include="SkiaSharp.NativeAssets.WebAssembly" Version="2.88.0-preview.187" />
   </ItemGroup>
 
 

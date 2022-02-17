@@ -1,11 +1,17 @@
-﻿
+﻿.divCaptach {
+    display: flex;
+    flex-wrap: nowrap;
+}
 .btn-refresh {
     border: none;
     background-color: gainsboro;
-    padding: 2px 2px 2px 4px;
+    padding: 5px 2px 0px 4px;
     font-size: 16px;
-    height:20px;
-    vertical-align: sub;
+    height: 25px;
+    align-self: center;
+    margin-left: 3px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
     .btn-refresh:before {

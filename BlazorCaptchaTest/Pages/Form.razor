@@ -1,0 +1,82 @@
+﻿@page "/form"
+@using BlazorCaptcha
+
+    <div class="container">
+
+        <h3>Account recovery</h3>
+        @if (valided == false)
+        {
+            <EditForm Model="@formModel" OnValidSubmit="@HandleValidSubmit" onkeydown="return event.keyCode !== 13">
+                <div class="form-group row">
+                    <label for="idName" class="col-sm-2 row">Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" @bind="formModel.Name" class="form-control form-control-sm" id="idName" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class=" col-sm-2 row"></label>
+                    <div class="col-sm-4">
+                        <Captcha @bind-CaptchaWord="@Captcha" CharNumber="@CaptchaLetters" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="idCaptcha" class="col-sm-2 row">CAPTCHA</label>
+                    <div class="col-sm-4">
+                        <input type="text" @bind="formModel.CaptchaVerif" class="form-control form-control-sm" id="idCaptcha" placeholder="Type the letters above" required />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                </div>
+            </EditForm>
+        }
+        else
+        {
+        <div class="alert alert-success mt-4" role="alert">
+            <span class="oi oi-thumb-up mr-2" aria-hidden="true"></span>
+            <strong>Thank you!</strong>
+            <br />
+            I think you're an earthling.
+        </div>
+        }
+
+
+     </div>
+
+<p>@Captcha</p>
+
+@code{
+    private string Captcha = "";
+    private int CaptchaLetters = 5;
+    private bool valided = false;
+    private FormModel formModel = new FormModel();
+
+    protected override Task OnInitializedAsync()
+    {
+       Captcha = BlazorCaptcha.Tools.GetCaptchaWord(CaptchaLetters);
+
+        return base.OnInitializedAsync();
+    }
+
+    private void HandleValidSubmit()
+    {
+        if (formModel.CaptchaVerif == Captcha)
+        {
+            valided = true;
+            formModel = new FormModel();
+        }
+        else
+        {
+            valided = false;
+        }
+
+    }
+
+    public class FormModel
+    {
+        public string Name { get; set; } = "";
+
+        public string CaptchaVerif { get; set; } = "";
+    }
+}
