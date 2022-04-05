@@ -1,4 +1,4 @@
-# Blazor-Captcha
+﻿# Blazor-Captcha
 [![NuGet](https://img.shields.io/nuget/v/BlazorCaptcha.svg)](https://www.nuget.org/packages/BlazorCaptcha/)  ![BlazorCaptcha Nuget Package](https://img.shields.io/nuget/dt/BlazorCaptcha)
 
 Generates a captcha image for a Blazor Server application.
@@ -51,7 +51,29 @@ For client-side and server-side Blazor - add script section to _Host.cshtml (hea
 }
 ```
 
-# Breaking Change version 1.0.1 to 1.1.0
-- Change the parameter "CaptchaWord" => "@bind-CaptchaWord"
-- Add the parameter with the length of the word ex : "CharNumber="@CaptchaLetters"
-- Remove the "OnRefresh" parameter
+## <a name="ReleaseNotes"></a>Release Notes
+
+<details open="open"><summary>Version 1.2.3</summary>
+    
+>- Add type="button"
+</details>
+
+
+<details><summary>Version 1.2.2</summary>
+    
+>- add nuget package SkiaSharp.NativeAssets.Linux
+</details>
+
+<details><summary>Version 1.2.0</summary>
+    
+>- NET6, removal of the bootstrap class
+</details>
+
+### ⚠️ Breaking changes ⚠️
+
+<details><summary>Version  1.0.1 to 1.1.0</summary>
+    
+>- Change the parameter "CaptchaWord" => "@bind-CaptchaWord"
+>- Add the parameter with the length of the word ex : "CharNumber="@CaptchaLetters"
+>- Remove the "OnRefresh" parameter
+</details>

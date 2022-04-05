@@ -7,7 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCaptcha", "BlazorCapt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor-Wasm-Captcha-Test", "Blazor-Wasm-Captcha-Test\Blazor-Wasm-Captcha-Test.csproj", "{FC94674E-B253-4A80-B0A4-04E18430CC3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCaptchaTest", "BlazorCaptchaTest\BlazorCaptchaTest.csproj", "{9D60396B-4540-4133-ACDE-4C1335572DF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCaptchaTest", "BlazorCaptchaTest\BlazorCaptchaTest.csproj", "{9D60396B-4540-4133-ACDE-4C1335572DF2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{00BC20B9-76F9-4AF1-9D77-18602D3ECC09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorServer", "BlazorServer", "{9E2D3C1A-4199-4EED-8CF0-C2DDA72DB6D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorWebAssembly", "BlazorWebAssembly", "{2FCE373F-EAA9-4874-BB77-D8E04014F80F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +36,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FC94674E-B253-4A80-B0A4-04E18430CC3D} = {2FCE373F-EAA9-4874-BB77-D8E04014F80F}
+		{9D60396B-4540-4133-ACDE-4C1335572DF2} = {9E2D3C1A-4199-4EED-8CF0-C2DDA72DB6D3}
+		{9E2D3C1A-4199-4EED-8CF0-C2DDA72DB6D3} = {00BC20B9-76F9-4AF1-9D77-18602D3ECC09}
+		{2FCE373F-EAA9-4874-BB77-D8E04014F80F} = {00BC20B9-76F9-4AF1-9D77-18602D3ECC09}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BF5DBA06-12CD-4D0D-86A6-0B940B186EA0}
