@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlazorCaptcha\BlazorCaptcha.csproj" />
+    <ProjectReference Include="..\..\..\BlazorCaptcha\BlazorCaptcha.csproj" />
   </ItemGroup>
 
 </Project>
