@@ -66,7 +66,7 @@ public class Captcha : ComponentBase
 
         RandomValue = new Random();
 
-        _bgColor = new SKColor((byte)RandomValue.Next(90, 130), (byte)RandomValue.Next(90, 130), (byte)RandomValue.Next(90, 130));
+        _bgColor = new SKColor((byte)RandomValue.Next(70, 100), (byte)RandomValue.Next(60, 80), (byte)RandomValue.Next(50, 90));
 
         var fontFamilies = new string[] { "Courier", "Arial", "Verdana", "Times New Roman" };
 
@@ -80,7 +80,7 @@ public class Captcha : ComponentBase
                 {
                     Value = c.ToString(),
                     Angle = RandomValue.Next(-15, 25),
-                    ForeColor = new SKColor((byte)RandomValue.Next(256), (byte)RandomValue.Next(256), (byte)RandomValue.Next(256)),
+                    ForeColor = new SKColor((byte)RandomValue.Next(100,256), (byte)RandomValue.Next(110,256), (byte)RandomValue.Next(90,256)),
                     Family = fontFamilies[RandomValue.Next(0, fontFamilies.Length)],
                 };
 
@@ -118,18 +118,39 @@ public class Captcha : ComponentBase
 
                     SKRect rect = new();
                     float width = paint.MeasureText(l.Value, ref rect);
-                    float textWidth = width - 2;// + rect.Right;
+
+                    float textWidth = width - 2;
                     var y = ((Height - rect.Height) / 2);
 
-
-                    if (l.Angle < -5)
+                    //TODO : change this bad code by a calcul with Matrix to
+                    //       determine the Y after the rotation
                     {
-                        y = Height - rect.Height;
+                        if (l.Angle < -5)
+                        {
+                            y = Height - rect.Height - 9;
+                        }
+
+                        if (y > 13 & l.Angle > 20)  y = 5;
+                        if (x > 94) x -= 15;
                     }
+                    
+
                     canvas.Save();
+
                     canvas.Translate(x, y);
                     canvas.RotateDegrees(l.Angle);
                     canvas.DrawText(l.Value, x, y, paint);
+
+                    //var y2 = GetNewY(x, y, rect.Width, l.Angle);
+                    //var paint1 = new SKPaint
+                    //{
+                    //    TextSize = 64.0f,
+                    //    IsAntialias = true,
+                    //    Color = new SKColor(255, 0, 0),
+                    //    Style = SKPaintStyle.Stroke
+                    //};
+                    //canvas.DrawRect(rect.Left + x, y2 + rect.Top, rect.Width, rect.Height, paint1);
+
                     canvas.Restore();
 
                     x += textWidth;
@@ -176,6 +197,15 @@ public class Captcha : ComponentBase
         base.BuildRenderTree(builder);
     }
 
+    private float GetNewY( float x1, float y1, float length, float angle)
+    {
+        angle *= (float) Math.PI / 180;
+
+        //var x2 = x1 + length * Math.Cos(angle);
+        var y2 = (float)(y1 + length * Math.Sin(angle));
+
+        return y2;
+    }
 }
 
 
