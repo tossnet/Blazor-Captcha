@@ -1,7 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿namespace BlazorCaptcha;
 
-namespace BlazorCaptcha;
+using System;
+using System.Linq;
 
 public static class Tools
 {

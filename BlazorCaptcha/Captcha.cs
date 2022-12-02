@@ -11,7 +11,6 @@ namespace BlazorCaptcha;
 
 public class Captcha : ComponentBase
 {
-
     [Parameter]
     public int Width { get; set; } = 170;
 
@@ -26,13 +25,12 @@ public class Captcha : ComponentBase
 
     private string _captchaWord;
     [Parameter]
-    public string CaptchaWord {
-        get
+    public string CaptchaWord
+    {
+        get => _captchaWord;
+        set
         {
-            return _captchaWord;
-        }
-        set {
-            if (_captchaWord != value )
+            if (_captchaWord != value)
             {
                 _captchaWord = value;
                 Initialization();
@@ -66,7 +64,11 @@ public class Captcha : ComponentBase
 
         RandomValue = new Random();
 
-        _bgColor = new SKColor((byte)RandomValue.Next(70, 100), (byte)RandomValue.Next(60, 80), (byte)RandomValue.Next(50, 90));
+        _bgColor = new SKColor( (byte)RandomValue.Next(70, 100), 
+                                (byte)RandomValue.Next(60, 80), 
+                                (byte)RandomValue.Next(50, 90)
+                              );
+        
 
         var fontFamilies = new string[] { "Courier", "Arial", "Verdana", "Times New Roman" };
 
@@ -80,7 +82,9 @@ public class Captcha : ComponentBase
                 {
                     Value = c.ToString(),
                     Angle = RandomValue.Next(-15, 25),
-                    ForeColor = new SKColor((byte)RandomValue.Next(100,256), (byte)RandomValue.Next(110,256), (byte)RandomValue.Next(90,256)),
+                    ForeColor = new SKColor((byte)RandomValue.Next(100,256), 
+                                            (byte)RandomValue.Next(110,256), 
+                                            (byte)RandomValue.Next(90,256)),
                     Family = fontFamilies[RandomValue.Next(0, fontFamilies.Length)],
                 };
 
