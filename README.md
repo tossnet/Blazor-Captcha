@@ -53,7 +53,13 @@ For client-side and server-side Blazor - add script section to _Host.cshtml (hea
 
 ## <a name="ReleaseNotes"></a>Release Notes
 
-<details open="open"><summary>Version 1.2.3</summary>
+<details open="open"><summary>Version 1.2.4</summary>
+    
+>- minor improvement
+</details>
+
+
+<details><summary>Version 1.2.3</summary>
     
 >- Add type="button"
 </details>
