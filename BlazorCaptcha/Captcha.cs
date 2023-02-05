@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿namespace BlazorCaptcha;
+
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using Microsoft.AspNetCore.Components.Web;
 using SkiaSharp;
@@ -7,7 +9,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace BlazorCaptcha;
 
 public class Captcha : ComponentBase
 {
@@ -123,28 +124,15 @@ public class Captcha : ComponentBase
                     SKRect rect = new();
                     float width = paint.MeasureText(l.Value, ref rect);
 
-                    float textWidth = width - 2;
-                    var y = ((Height - rect.Height) / 2);
-
-                    //TODO : change this bad code by a calcul with Matrix to
-                    //       determine the Y after the rotation
-                    {
-                        if (l.Angle < -5)
-                        {
-                            y = Height - rect.Height - 9;
-                        }
-
-                        if (y > 13 & l.Angle > 20)  y = 5;
-                        if (x > 94) x -= 15;
-                    }
-                    
+                    float textWidth = width;
+                    var y = (Height - rect.Height);
 
                     canvas.Save();
 
-                    canvas.Translate(x, y);
-                    canvas.RotateDegrees(l.Angle);
+                    canvas.RotateDegrees(l.Angle, x, y);
                     canvas.DrawText(l.Value, x, y, paint);
 
+                    // Draw red rectangle to debug :
                     //var y2 = GetNewY(x, y, rect.Width, l.Angle);
                     //var paint1 = new SKPaint
                     //{
@@ -157,7 +145,7 @@ public class Captcha : ComponentBase
 
                     canvas.Restore();
 
-                    x += textWidth;
+                    x += textWidth+10;
                 }
 
                 canvas.DrawLine(0, RandomValue.Next(0, Height), Width, RandomValue.Next(0, Height), paint);

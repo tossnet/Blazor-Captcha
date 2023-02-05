@@ -53,7 +53,17 @@ For client-side and server-side Blazor - add script section to _Host.cshtml (hea
 
 ## <a name="ReleaseNotes"></a>Release Notes
 
-<details open="open"><summary>Version 1.2.4</summary>
+<details open="open"><summary>Version 1.4.0</summary>
+    
+>- issue #10 Characters did not always fit inside the div
+</details>
+
+<details open="open"><summary>Version 1.3.0</summary>
+    
+>- migrate to .NET 7
+</details>
+
+<details><summary>Version 1.2.4</summary>
     
 >- minor improvement
 </details>
