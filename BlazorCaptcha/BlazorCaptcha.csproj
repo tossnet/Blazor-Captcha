@@ -8,11 +8,11 @@
 		<PackageTags>Blazor, captcha</PackageTags>
 		<Authors>Christophe Peugnet</Authors>
 		<Company>Christophe Peugnet</Company>
-		<Description>Generates a captcha image for a Blazor Server application</Description>
-		<PackageReleaseNotes> issue #10 Characters did not always fit inside the div</PackageReleaseNotes>
+		<Description>Generates a captcha image for a Blazor Server or WebAssembly application</Description>
+		<PackageReleaseNotes>To avoid any confusion, remove 'x', 'V', 'v' chars</PackageReleaseNotes>
 		<PackageIcon>icon.png</PackageIcon>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.4.0</Version>
+		<Version>1.4.1</Version>
 		<AssemblyVersion>1.2.0.1</AssemblyVersion>
 		<FileVersion>1.2.0.1</FileVersion>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>

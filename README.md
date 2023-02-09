@@ -1,7 +1,7 @@
 ﻿# Blazor-Captcha
 [![NuGet](https://img.shields.io/nuget/v/BlazorCaptcha.svg)](https://www.nuget.org/packages/BlazorCaptcha/)  ![BlazorCaptcha Nuget Package](https://img.shields.io/nuget/dt/BlazorCaptcha)
 
-Generates a captcha image for a Blazor Server application.
+Generates a captcha image for a Blazor Server or Webassembly application.
 
 ![Blazor Captcha](https://github.com/tossnet/Blazor-Captcha/blob/master/blazor-captcha.png)
 
@@ -53,9 +53,15 @@ For client-side and server-side Blazor - add script section to _Host.cshtml (hea
 
 ## <a name="ReleaseNotes"></a>Release Notes
 
-<details open="open"><summary>Version 1.4.0</summary>
+<details open="open"><summary>Version 1.4.1</summary>
+    
+>- To avoid any confusion, remove 'x', 'V', 'v' chars
+</details>
+
+<details><summary>Version 1.4.0</summary>
     
 >- issue #10 Characters did not always fit inside the div
+>- remove 'X' and '+' chars
 </details>
 
 <details open="open"><summary>Version 1.3.0</summary>
