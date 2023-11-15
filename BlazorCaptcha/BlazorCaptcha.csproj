@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
@@ -9,10 +9,10 @@
 		<Authors>Christophe Peugnet</Authors>
 		<Company>Christophe Peugnet</Company>
 		<Description>Generates a captcha image for a Blazor Server or WebAssembly application</Description>
-		<PackageReleaseNotes>To avoid any confusion, remove 'x', 'V', 'v' chars</PackageReleaseNotes>
+		<PackageReleaseNotes>Update nuget packages</PackageReleaseNotes>
 		<PackageIcon>icon.png</PackageIcon>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.4.1</Version>
+		<Version>1.4.2</Version>
 		<AssemblyVersion>1.2.0.1</AssemblyVersion>
 		<FileVersion>1.2.0.1</FileVersion>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
@@ -45,11 +45,11 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="7.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="7.0.14" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.14" />
     <PackageReference Include="SkiaSharp" Version="2.88.6" />
-    <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="2.88.3" />
-    <PackageReference Include="SkiaSharp.NativeAssets.WebAssembly" Version="2.88.3" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="2.88.6" />
+    <PackageReference Include="SkiaSharp.NativeAssets.WebAssembly" Version="2.88.6" />
   </ItemGroup>
 
 
