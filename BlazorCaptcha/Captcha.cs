@@ -1,4 +1,4 @@
-﻿namespace BlazorCaptcha;
+namespace BlazorCaptcha;
 
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
@@ -52,7 +52,7 @@ public class Captcha : ComponentBase
     private Random RandomValue { get; set; }
     private List<Letter> Letters;
     private SKColor _bgColor;
-
+    private string img = "";
     public Captcha()
     {
         Initialization();
@@ -91,6 +91,68 @@ public class Captcha : ComponentBase
 
                 Letters.Add(letter);
             }
+
+            SKImageInfo imageInfo = new(Width, Height);
+            using (var surface = SKSurface.Create(imageInfo))
+            {
+                var canvas = surface.Canvas;
+                canvas.Clear(_bgColor);
+
+                using (SKPaint paint = new())
+                {
+                    float x = 10;
+
+                    foreach (Letter l in Letters)
+                    {
+                        paint.Color = l.ForeColor;
+                        paint.Typeface = SKTypeface.FromFamilyName(l.Family);
+                        paint.TextAlign = SKTextAlign.Left;
+                        paint.TextSize = RandomValue.Next(Height / 2, (Height / 2) + (Height / 4));
+                        paint.FakeBoldText = true;
+                        paint.IsAntialias = true;
+
+                        SKRect rect = new();
+                        float width = paint.MeasureText(l.Value, ref rect);
+
+                        float textWidth = width;
+                        var y = (Height - rect.Height);
+
+                        canvas.Save();
+
+                        canvas.RotateDegrees(l.Angle, x, y);
+                        canvas.DrawText(l.Value, x, y, paint);
+
+                        // Draw red rectangle to debug :
+                        //var y2 = GetNewY(x, y, rect.Width, l.Angle);
+                        //var paint1 = new SKPaint
+                        //{
+                        //    TextSize = 64.0f,
+                        //    IsAntialias = true,
+                        //    Color = new SKColor(255, 0, 0),
+                        //    Style = SKPaintStyle.Stroke
+                        //};
+                        //canvas.DrawRect(rect.Left + x, y2 + rect.Top, rect.Width, rect.Height, paint1);
+
+                        canvas.Restore();
+
+                        x += textWidth + 10;
+                    }
+
+                    canvas.DrawLine(0, RandomValue.Next(0, Height), Width, RandomValue.Next(0, Height), paint);
+                    canvas.DrawLine(0, RandomValue.Next(0, Height), Width, RandomValue.Next(0, Height), paint);
+                    paint.Style = SKPaintStyle.Stroke;
+                    canvas.DrawOval(RandomValue.Next(-Width, Width), RandomValue.Next(-Height, Height), Width, Height, paint);
+                }
+
+
+                // save the file
+                MemoryStream memoryStream = new();
+                using (var image = surface.Snapshot())
+                using (var data = image.Encode(SKEncodedImageFormat.Png, 75))
+                    data.SaveTo(memoryStream);
+                string imageBase64Data2 = Convert.ToBase64String(memoryStream.ToArray());
+                img = string.Format("data:image/gif;base64,{0}", imageBase64Data2);
+            }
         }
 
     }
@@ -101,68 +163,8 @@ public class Captcha : ComponentBase
         if (RandomValue == null) return;
         if (string.IsNullOrEmpty(CaptchaWord)) return;
 
-        string img = "";
-        SKImageInfo imageInfo = new(Width, Height);
-        using (var surface = SKSurface.Create(imageInfo))
-        {
-            var canvas = surface.Canvas;
-            canvas.Clear(_bgColor);
+        
 
-            using (SKPaint paint = new())
-            {
-                float x = 10;
-
-                foreach (Letter l in Letters)
-                {
-                    paint.Color = l.ForeColor;
-                    paint.Typeface = SKTypeface.FromFamilyName(l.Family);
-                    paint.TextAlign = SKTextAlign.Left;
-                    paint.TextSize = RandomValue.Next(Height / 2, (Height / 2) + (Height / 4));
-                    paint.FakeBoldText = true;
-                    paint.IsAntialias = true;
-
-                    SKRect rect = new();
-                    float width = paint.MeasureText(l.Value, ref rect);
-
-                    float textWidth = width;
-                    var y = (Height - rect.Height);
-
-                    canvas.Save();
-
-                    canvas.RotateDegrees(l.Angle, x, y);
-                    canvas.DrawText(l.Value, x, y, paint);
-
-                    // Draw red rectangle to debug :
-                    //var y2 = GetNewY(x, y, rect.Width, l.Angle);
-                    //var paint1 = new SKPaint
-                    //{
-                    //    TextSize = 64.0f,
-                    //    IsAntialias = true,
-                    //    Color = new SKColor(255, 0, 0),
-                    //    Style = SKPaintStyle.Stroke
-                    //};
-                    //canvas.DrawRect(rect.Left + x, y2 + rect.Top, rect.Width, rect.Height, paint1);
-
-                    canvas.Restore();
-
-                    x += textWidth+10;
-                }
-
-                canvas.DrawLine(0, RandomValue.Next(0, Height), Width, RandomValue.Next(0, Height), paint);
-                canvas.DrawLine(0, RandomValue.Next(0, Height), Width, RandomValue.Next(0, Height), paint);
-                paint.Style = SKPaintStyle.Stroke;
-                canvas.DrawOval(RandomValue.Next(-Width, Width), RandomValue.Next(-Height, Height), Width, Height, paint);
-            }
-
-
-            // save the file
-            MemoryStream memoryStream = new();
-            using (var image = surface.Snapshot())
-            using (var data = image.Encode(SKEncodedImageFormat.Png, 75))
-                data.SaveTo(memoryStream);
-            string imageBase64Data2 = Convert.ToBase64String(memoryStream.ToArray());
-            img = string.Format("data:image/gif;base64,{0}", imageBase64Data2);
-        }
 
         //---
 
@@ -199,7 +201,3 @@ public class Captcha : ComponentBase
         return y2;
     }
 }
-
-
-
-
