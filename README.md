@@ -54,16 +54,19 @@ For client-side and server-side Blazor - add script section to _Host.cshtml (hea
 ## <a name="ReleaseNotes"></a>Release Notes
 
 
-<details open="open"><summary>Version 1.5.0</summary>
+<details  open="open"><summary>Version 1.6.0</summary>
     
->- 
-Add DotNet 8.0 framework target
+>- issue #12
+</details>
+
+<details><summary>Version 1.5.0</summary>
+    
+>- Add DotNet 8.0 framework target
 </details>
 
 <details ><summary>Version 1.4.2</summary>
     
->- 
-Update nuget packages
+>- Update nuget packages
 </details>
 
 <details><summary>Version 1.4.1</summary>

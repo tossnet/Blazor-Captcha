@@ -5,17 +5,17 @@
 
 <h3>Hello, world!</h3>
 
-<Captcha @bind-CaptchaWord="@Captcha" Width="200" Height="50" CharNumber="@CaptchaLetters" />
-
+@* <Captcha @bind-CaptchaWord="@Captcha" Width="200" Height="50" CharNumber="@CaptchaLetters" /> *@
+                    <Toto></Toto>
 <p>@Captcha</p>
 
 @code{
     private string Captcha  { get; set; } = "";
-    private int CaptchaLetters = 5;
+    // private int CaptchaLetters = 5;
     
-    protected override Task OnInitializedAsync()
-    {
-        Captcha = BlazorCaptcha.Tools.GetCaptchaWord(CaptchaLetters);
-        return base.OnInitializedAsync();
-    }
+    // protected override Task OnInitializedAsync()
+    // {
+    //     Captcha = BlazorCaptcha.Tools.GetCaptchaWord(CaptchaLetters);
+    //     return base.OnInitializedAsync();
+    // }
 }
