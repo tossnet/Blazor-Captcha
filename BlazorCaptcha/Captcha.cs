@@ -52,7 +52,7 @@ public class Captcha : ComponentBase
     private Random RandomValue { get; set; }
     private List<Letter> Letters;
     private SKColor _bgColor;
-    private string img = "";
+    private string img = string.Empty;
     public Captcha()
     {
         Initialization();
@@ -69,9 +69,9 @@ public class Captcha : ComponentBase
                                 (byte)RandomValue.Next(60, 80), 
                                 (byte)RandomValue.Next(50, 90)
                               );
-        
 
-        var fontFamilies = new string[] { "Courier", "Arial", "Verdana", "Times New Roman" };
+
+        var fontFamilies = new string[] { "Open Sans", "Courier", "Arial", "Times New Roman" };
 
         Letters = new List<Letter>();
 
@@ -104,38 +104,46 @@ public class Captcha : ComponentBase
 
                     foreach (Letter l in Letters)
                     {
-                        paint.Color = l.ForeColor;
-                        paint.Typeface = SKTypeface.FromFamilyName(l.Family);
-                        paint.TextAlign = SKTextAlign.Left;
-                        paint.TextSize = RandomValue.Next(Height / 2, (Height / 2) + (Height / 4));
-                        paint.FakeBoldText = true;
-                        paint.IsAntialias = true;
+                        // Configuration des propriétés liées à SKFont
+                        var typeface = SKTypeface.FromFamilyName(l.Family);
 
-                        SKRect rect = new();
-                        float width = paint.MeasureText(l.Value, ref rect);
+                        using (var font = new SKFont(typeface, RandomValue.Next(Height / 2, (Height / 2) + (Height / 4))))
+                        {
+                            font.Edging = SKFontEdging.Antialias;
+                            //font.Typeface.FontWeight = SKFontStyleWeight.Bold;
+                            
+                            // Configuration des propriétés de SKPaint
+                            paint.Color = l.ForeColor;
+                            paint.IsAntialias = true;
+                            //paint.TextAlign = SKTextAlign.Left;
 
-                        float textWidth = width;
-                        var y = (Height - rect.Height);
 
-                        canvas.Save();
+                            SKRect rect = new();
+                            float width = font.MeasureText(l.Value, out rect);
 
-                        canvas.RotateDegrees(l.Angle, x, y);
-                        canvas.DrawText(l.Value, x, y, paint);
+                            float textWidth = width;
+                            var y = (Height - rect.Height);
 
-                        // Draw red rectangle to debug :
-                        //var y2 = GetNewY(x, y, rect.Width, l.Angle);
-                        //var paint1 = new SKPaint
-                        //{
-                        //    TextSize = 64.0f,
-                        //    IsAntialias = true,
-                        //    Color = new SKColor(255, 0, 0),
-                        //    Style = SKPaintStyle.Stroke
-                        //};
-                        //canvas.DrawRect(rect.Left + x, y2 + rect.Top, rect.Width, rect.Height, paint1);
+                            canvas.Save();
 
-                        canvas.Restore();
+                            canvas.RotateDegrees(l.Angle, x, y);
+                            canvas.DrawText(l.Value, x, y, font, paint);
 
-                        x += textWidth + 10;
+                            // Draw red rectangle to debug :
+                            //var y2 = GetNewY(x, y, rect.Width, l.Angle);
+                            //var paint1 = new SKPaint
+                            //{
+                            //    TextSize = 64.0f,
+                            //    IsAntialias = true,
+                            //    Color = new SKColor(255, 0, 0),
+                            //    Style = SKPaintStyle.Stroke
+                            //};
+                            //canvas.DrawRect(rect.Left + x, y2 + rect.Top, rect.Width, rect.Height, paint1);
+
+                            canvas.Restore();
+
+                            x += textWidth + 10;
+                        }
                     }
 
                     canvas.DrawLine(0, RandomValue.Next(0, Height), Width, RandomValue.Next(0, Height), paint);
@@ -162,11 +170,6 @@ public class Captcha : ComponentBase
     {
         if (RandomValue == null) return;
         if (string.IsNullOrEmpty(CaptchaWord)) return;
-
-        
-
-
-        //---
 
 
         var seq = 0;
