@@ -117,12 +117,10 @@ public class Captcha : ComponentBase
                             paint.IsAntialias = true;
                             //paint.TextAlign = SKTextAlign.Left;
 
-
-                            SKRect rect = new();
-                            float width = font.MeasureText(l.Value, out rect);
+                            float width = font.GetGlyphWidths(l.Value, out SKRect[] bounds)[0];
 
                             float textWidth = width;
-                            var y = (Height - rect.Height);
+                            var y = (Height - bounds[0].Height);
 
                             canvas.Save();
 
@@ -130,7 +128,7 @@ public class Captcha : ComponentBase
                             canvas.DrawText(l.Value, x, y, font, paint);
 
                             // Draw red rectangle to debug :
-                            //var y2 = GetNewY(x, y, rect.Width, l.Angle);
+                            //var y2 = GetNewY(x, y, bounds[0].Width, l.Angle);
                             //var paint1 = new SKPaint
                             //{
                             //    TextSize = 64.0f,
@@ -138,7 +136,7 @@ public class Captcha : ComponentBase
                             //    Color = new SKColor(255, 0, 0),
                             //    Style = SKPaintStyle.Stroke
                             //};
-                            //canvas.DrawRect(rect.Left + x, y2 + rect.Top, rect.Width, rect.Height, paint1);
+                            //canvas.DrawRect(bounds[0].Left + x, y2 + bounds[0].Top, bounds[0].Width, bounds[0].Height, paint1);
 
                             canvas.Restore();
 

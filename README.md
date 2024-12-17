@@ -53,8 +53,13 @@ For client-side and server-side Blazor - add script section to _Host.cshtml (hea
 
 ## <a name="ReleaseNotes"></a>Release Notes
 
+<details  open="open"><summary>Version 1.7.1</summary>
+    
+>- https://github.com/tossnet/Blazor-Captcha/issues/20#issuecomment-2549029344
+</details>
 
-<details  open="open"><summary>Version 1.6.0</summary>
+
+<details><summary>Version 1.6.0</summary>
     
 >- issue #12
 </details>
