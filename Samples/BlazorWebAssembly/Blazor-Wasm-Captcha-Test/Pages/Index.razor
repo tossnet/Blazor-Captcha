@@ -5,7 +5,7 @@
 
 <h3>Hello, world!</h3>
 
-@* <Captcha @bind-CaptchaWord="@Captcha" Width="200" Height="50" CharNumber="@CaptchaLetters" />  *@
+<Captcha @bind-CaptchaWord="@Captcha" Width="200" Height="50" CharNumber="@CaptchaLetters" /> 
                  
 <p>@Captcha</p>
 
@@ -15,7 +15,7 @@
     
     protected override Task OnInitializedAsync()
     {
-        // Captcha = BlazorCaptcha.Tools.GetCaptchaWord(CaptchaLetters);
+         Captcha = BlazorCaptcha.Tools.GetCaptchaWord(CaptchaLetters);
         return base.OnInitializedAsync();
     }
 

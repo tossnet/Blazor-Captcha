@@ -9,7 +9,7 @@ public static class Tools
     {
         var random = new Random(DateTime.Now.Millisecond);
 
-        const string chars = "ABCDEFGHJKLMNPQRSTUWYZabcdefghijkmnpqrstuwz23456789*#!$%=";
+        const string chars = "ABCDEFGHJKLMNPQRTUWYZabcdefghijkmnpqrtuwz23456789*#!$%=@?";
         string cw = new(Enumerable.Repeat(chars, length)
                                   .Select(s => s[random.Next(s.Length)])
                                   .ToArray());
