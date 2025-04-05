@@ -1,14 +1,15 @@
 ﻿# Blazor-Captcha
 [![NuGet](https://img.shields.io/nuget/v/BlazorCaptcha.svg)](https://www.nuget.org/packages/BlazorCaptcha/)  ![BlazorCaptcha Nuget Package](https://img.shields.io/nuget/dt/BlazorCaptcha)
 
-Generates a captcha image for a Blazor Server <s>or Webassembly</s> application.
+Generates a captcha image for a Blazor Server or Webassembly application.
+
+## Live demo
+Blazor webassembly : https://tossnet.github.io/Blazor-Captcha/
 
 ![Blazor Captcha](https://github.com/tossnet/Blazor-Captcha/blob/master/blazor-captcha.png)
 
 
-
 # Installation
-Latest version in here: [![NuGet](https://img.shields.io/nuget/v/BlazorCaptcha.svg)](https://www.nuget.org/packages/BlazorCaptcha/)
 
 To Install
 
