@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<PackageId>BlazorCaptcha</PackageId>
-		<TargetFrameworks>net8.0; net9.0</TargetFrameworks>
+		<TargetFrameworks>net8.0</TargetFrameworks>
 		<!--<TargetFramework>net9.0</TargetFramework>-->
 		<Copyright>Copyright 2020-2025</Copyright>
 		<PackageProjectUrl>https://github.com/tossnet/Blazor-Captcha</PackageProjectUrl>
@@ -58,14 +58,6 @@
 
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
-		<PackageReference Include="Microsoft.AspNetCore.Components" Version="9.0.3" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.3" />
-		<PackageReference Include="SkiaSharp" Version="3.119.0-preview.1.2" />
-		<PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="3.119.0-preview.1.2" />
-		<PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="3.119.0-preview.1.2" />
-		<PackageReference Include="SkiaSharp.Views.Blazor" Version="3.119.0-preview.1.2" />
-	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\BlazorCaptcha.Commun\BlazorCaptcha.Commun.csproj" />
