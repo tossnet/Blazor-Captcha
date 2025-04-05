@@ -20,8 +20,6 @@ public static class CaptchaRenderer
 
         var fontFamilies = new string[] { "Open Sans", "Courier", "Arial", "Times New Roman" };
 
-        Letters.Clear();
-
         foreach (char c in CaptchaWord)
         {
             var letter = new Letter

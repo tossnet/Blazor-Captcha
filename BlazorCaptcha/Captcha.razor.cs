@@ -10,6 +10,7 @@ namespace BlazorCaptcha;
 public partial class Captcha : CaptchaComponentBase
 {
     /// <summary />
+#pragma warning disable BL0007
     [Parameter]
     public string CaptchaWord
     {
@@ -23,9 +24,10 @@ public partial class Captcha : CaptchaComponentBase
             }
         }
     }
+#pragma warning restore BL0007
 
     private string _captchaWord;
-    private string? img = null;
+    private string img = null;
 
     /// <summary />
     protected override void OnInitialized()
@@ -34,7 +36,6 @@ public partial class Captcha : CaptchaComponentBase
 
         Initialization();
     }
-
 
     /// <summary />
     private async Task OnRefreshInternal()
