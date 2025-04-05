@@ -1,7 +1,9 @@
 ﻿namespace BlazorCaptcha;
 
+/// <summary />
 public static class Tools
 {
+    /// <summary />
     public static string GetCaptchaWord(int length)
     {
         var random = new Random(DateTime.Now.Millisecond);

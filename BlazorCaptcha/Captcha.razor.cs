@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BlazorCaptcha;
 
-/// </summary>
+/// <summary />
 public partial class Captcha : CaptchaComponentBase
 {
-    /// </summary>
+    /// <summary />
     [Parameter]
     public string CaptchaWord
     {
@@ -24,7 +24,10 @@ public partial class Captcha : CaptchaComponentBase
         }
     }
 
-    /// </summary>
+    private string _captchaWord;
+    private string? img = null;
+
+    /// <summary />
     protected override void OnInitialized()
     {
         base.OnInitialized();
@@ -32,10 +35,8 @@ public partial class Captcha : CaptchaComponentBase
         Initialization();
     }
 
-    private string _captchaWord;
-    private string img = string.Empty;
 
-    /// </summary>
+    /// <summary />
     private async Task OnRefreshInternal()
     {
         CaptchaWord = Tools.GetCaptchaWord(CharNumber);
@@ -45,7 +46,7 @@ public partial class Captcha : CaptchaComponentBase
         await CaptchaWordChanged.InvokeAsync(CaptchaWord);
     }
 
-    /// </summary>
+    /// <summary />
     private void Initialization()
     {
         if (string.IsNullOrEmpty(CaptchaWord))
@@ -67,7 +68,7 @@ public partial class Captcha : CaptchaComponentBase
         img = ConvStreamToBase64(data);
     }
 
-    /// </summary>
+    /// <summary />
     private static string ConvStreamToBase64(SKData Data)
     {
         MemoryStream ms = new();

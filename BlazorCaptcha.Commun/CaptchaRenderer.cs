@@ -2,10 +2,10 @@
 
 namespace BlazorCaptcha;
 
-/// </summary>
+/// <summary />
 public static class CaptchaRenderer
 {
-    /// </summary>
+    /// <summary />
     public static void Draw(SKCanvas canvas, int Height, int Width, string CaptchaWord)
     {
         Random RandomValue = new();
