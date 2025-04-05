@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorServer", "BlazorServe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorWebAssembly", "BlazorWebAssembly", "{2FCE373F-EAA9-4874-BB77-D8E04014F80F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCaptcha.WebAssembly", "BlazorCaptcha.WebAssembly\BlazorCaptcha.WebAssembly.csproj", "{6B1DC544-179A-4DCF-B482-90F239F86681}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCaptcha.Commun", "BlazorCaptcha.Commun\BlazorCaptcha.Commun.csproj", "{37236660-4140-4E5F-AA90-139C53549E6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{9D60396B-4540-4133-ACDE-4C1335572DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D60396B-4540-4133-ACDE-4C1335572DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D60396B-4540-4133-ACDE-4C1335572DF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B1DC544-179A-4DCF-B482-90F239F86681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B1DC544-179A-4DCF-B482-90F239F86681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B1DC544-179A-4DCF-B482-90F239F86681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B1DC544-179A-4DCF-B482-90F239F86681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37236660-4140-4E5F-AA90-139C53549E6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37236660-4140-4E5F-AA90-139C53549E6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37236660-4140-4E5F-AA90-139C53549E6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37236660-4140-4E5F-AA90-139C53549E6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

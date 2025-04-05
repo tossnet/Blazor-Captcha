@@ -1,0 +1,14 @@
+﻿@using SkiaSharp
+@using SkiaSharp.Views.Blazor
+
+@inherits CaptchaComponentBase 
+
+<div class="divCaptach">
+    <SKCanvasView @ref="skiaView"
+                  style="@($"width: {Width}px; height: {Height}px;")"
+                  OnPaintSurface="OnPaintSurface"
+                  IgnorePixelScaling="true" />
+    <button type="button" class="btn-refresh" @onclick="@OnRefreshInternal"></button>
+</div>
+
+

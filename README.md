@@ -53,7 +53,14 @@ For client-side and server-side Blazor - add script section to _Host.cshtml (hea
 
 ## <a name="ReleaseNotes"></a>Release Notes
 
-<details  open="open"><summary>Version 1.7.1</summary>
+<details open="open"><summary>Version 2.0.0</summary>
+    
+>- Due to the Skiasharp problem : https://github.com/mono/SkiaSharp/discussions/3185#discussioncomment-12410708,a special component for Blazor WebAssembly has been created.
+
+>- .NET 7 compatibility removed
+</details>
+
+<details><summary>Version 1.7.1</summary>
     
 >- https://github.com/tossnet/Blazor-Captcha/issues/20#issuecomment-2549029344
 </details>

@@ -1,8 +1,5 @@
 ﻿namespace BlazorCaptcha;
 
-using System;
-using System.Linq;
-
 public static class Tools
 {
     public static string GetCaptchaWord(int length)

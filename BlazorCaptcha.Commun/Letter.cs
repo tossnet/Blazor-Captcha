@@ -1,7 +1,9 @@
-﻿namespace BlazorCaptcha;
+﻿using SkiaSharp;
 
-using SkiaSharp;
-internal class Letter
+namespace BlazorCaptcha;
+
+/// </summary>
+public class Letter
 {
     public int Angle { get; set; }
     public string Value { get; set; }
