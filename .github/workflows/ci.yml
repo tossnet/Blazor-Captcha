@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-     PUBLISH_FOLDER: Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/bin/Release/net8.0/publish
+     PUBLISH_FOLDER: Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/bin/Release/net8.0/publish/wwwroot
 
     name: Build and Deploy Job
     steps:
