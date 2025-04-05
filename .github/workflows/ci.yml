@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-     PUBLISH_FOLDER: Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/bin/Release/net8.0/publish/wwwroot
+     PUBLISH_FOLDER: Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/bin/Release/net8.0/wwwroot
 
     name: Build and Deploy Job
     steps:
@@ -25,8 +25,7 @@ jobs:
           dotnet-version: '9.x'
    
       - name: Dotnet Publish
-        run: 
-            dotnet publish --configuration Release -f net8.0
+        run: dotnet publish --configuration Release -f net8.0
 
       - name: Change base-tag in index.html to repo name
         run: sed -i 's/<base href="\/" \/>/<base href="\/${{ env.REPO_NAME }}\/" \/>/g' $GITHUB_WORKSPACE/$PUBLISH_FOLDER/index.html
