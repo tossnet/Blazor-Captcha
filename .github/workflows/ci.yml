@@ -25,6 +25,9 @@ jobs:
         with:
           dotnet-version: '8.x'
 
+      - name: Restore dependencies
+        run: dotnet restore
+
       #- name: Restore .NET workloads
       #  run: dotnet workload restore
       
@@ -35,7 +38,7 @@ jobs:
         run: dotnet workload list
 
       - name: Dotnet Publish
-        run: dotnet publish --configuration Release -f net8.0 --no-build
+        run: dotnet publish --configuration Release -f net8.0
 
       - name: Debug publish output
         run: |
