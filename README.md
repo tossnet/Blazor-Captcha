@@ -3,9 +3,6 @@
 
 Generates a captcha image for a Blazor Server or Webassembly application.
 
-## Live demo
-Blazor webassembly : https://tossnet.github.io/Blazor-Captcha/
-
 ![Blazor Captcha](https://github.com/tossnet/Blazor-Captcha/blob/master/blazor-captcha.png)
 
 
