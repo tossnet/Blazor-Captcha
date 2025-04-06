@@ -24,7 +24,10 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
-   
+
+      - name: Restore .NET workloads
+        run: dotnet workload restore
+
       - name: Dotnet Publish
         run: dotnet publish --configuration Release -f net8.0
 
