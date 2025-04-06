@@ -25,8 +25,14 @@ jobs:
         with:
           dotnet-version: '8.x'
 
-      - name: Restore .NET workloads
-        run: dotnet workload restore
+      #- name: Restore .NET workloads
+      #  run: dotnet workload restore
+      
+      - name: Install WebAssembly workload
+        run: dotnet workload install wasm-tools
+
+      - name: Check installed workloads (debug)
+        run: dotnet workload list
 
       - name: Dotnet Publish
         run: dotnet publish --configuration Release -f net8.0
