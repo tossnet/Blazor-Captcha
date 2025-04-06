@@ -2,7 +2,6 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net8.0; net9.0</TargetFrameworks>
-		<!--<TargetFramework>net9.0</TargetFramework>-->
 		<Copyright>Copyright 2020-2024</Copyright>
 		<PackageProjectUrl>https://github.com/tossnet/Blazor-Captcha</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/tossnet/Blazor-Captcha</RepositoryUrl>
