@@ -35,7 +35,7 @@ jobs:
         run: dotnet workload list
 
       - name: Dotnet Publish
-        run: dotnet publish --configuration Release -f net8.0
+        run: dotnet publish --configuration Release -f net8.0 --no-build
 
       - name: Debug publish output
         run: |
