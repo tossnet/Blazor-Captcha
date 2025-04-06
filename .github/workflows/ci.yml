@@ -46,7 +46,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
             github_token: ${{ secrets.PUBLISH_TOKEN_CAPTCHA }}
-            publish_dir: /${{ env.PUBLISH_FOLDER }}
+            publish_dir: ${{ env.PUBLISH_FOLDER }}
             allow_empty_commit: false
             keep_files: false
             force_orphan: true
