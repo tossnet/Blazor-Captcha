@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
+     CI: true
      PUBLISH_FOLDER: Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/bin/Release/net8.0/publish/wwwroot
 
     name: Build and Deploy Job
@@ -20,7 +21,7 @@ jobs:
         
       - uses: actions/checkout@v4
       
-      - uses: actions/setup-dotnet@v3
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
    
