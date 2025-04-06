@@ -3,6 +3,9 @@
 
 Generates a captcha image for a Blazor Server or Webassembly application.
 
+## Live demo
+ Blazor webassembly :  <a href="https://tossnet.github.io/Blazor-Captcha/" target="_blank">[https://tossnet.github.io/Blazor-Captcha/](https://tossnet.github.io/Blazor-Captcha/)</a> 
+ 
 ![Blazor Captcha](https://github.com/tossnet/Blazor-Captcha/blob/master/blazor-captcha.png)
 
 
