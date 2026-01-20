@@ -1,6 +1,6 @@
 ﻿using SkiaSharp;
 
-namespace BlazorCaptcha.Commun;
+namespace BlazorCaptcha;
 
 /// <summary>
 /// Renders CAPTCHA images using SkiaSharp.

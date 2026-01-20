@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography;
 
-namespace BlazorCaptcha.Commun;
+namespace BlazorCaptcha;
 
 /// <summary>
 /// Utility class for CAPTCHA generation.

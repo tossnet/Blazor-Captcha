@@ -43,7 +43,7 @@ jobs:
       - name: Debug publish output
         run: |
           echo "Listing output:"
-          ls -R Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/bin/Release/net8.0/publish/
+          ls -R Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/bin/Release/net9.0/publish/
 
       - name: Change base-tag in index.html to repo name
         run: sed -i 's/<base href="\/" \/>/<base href="\/${{ env.REPO_NAME }}\/" \/>/g' $GITHUB_WORKSPACE/$PUBLISH_FOLDER/index.html

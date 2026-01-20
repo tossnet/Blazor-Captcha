@@ -54,7 +54,7 @@
 
     protected override Task OnInitializedAsync()
     {
-        Captcha = BlazorCaptcha.Commun.Tools.GetCaptchaWord(CaptchaLetters);
+        Captcha = BlazorCaptcha.Tools.GetCaptchaWord(CaptchaLetters);
 
         return base.OnInitializedAsync();
     }

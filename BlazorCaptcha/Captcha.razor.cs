@@ -3,7 +3,6 @@ using SkiaSharp;
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using BlazorCaptcha.Commun;
 
 namespace BlazorCaptcha;
 
