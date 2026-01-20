@@ -30,15 +30,15 @@ jobs:
 
       #- name: Restore .NET workloads
       #  run: dotnet workload restore
+
+      - name: Remove global.json to allow .NET 9
+        run: rm global.json
       
       - name: Install WebAssembly workload
         run: dotnet workload install wasm-tools
 
       - name: Check installed workloads (debug)
         run: dotnet workload list
-    
-      - name: Remove global.json to allow .NET 9
-        run: rm global.json
 
       - name: Dotnet Publish
         run:  dotnet publish Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/Blazor-Wasm-Captcha-Test.csproj --configuration Release -f net9.0
