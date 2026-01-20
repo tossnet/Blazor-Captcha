@@ -11,7 +11,7 @@ jobs:
     
     env:
      CI: true
-     PUBLISH_FOLDER: Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/bin/Release/net8.0/publish/wwwroot
+     PUBLISH_FOLDER: Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/bin/Release/net9.0/publish/wwwroot
 
     name: Build and Deploy Job
     steps:
@@ -23,7 +23,7 @@ jobs:
       
       - uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.x'
+          dotnet-version: '9.x'
 
       #- name: Restore dependencies
       #  run: dotnet restore
@@ -38,7 +38,7 @@ jobs:
         run: dotnet workload list
 
       - name: Dotnet Publish
-        run: dotnet publish --configuration Release -f net8.0
+        run: dotnet publish --configuration Release -f net9.0
 
       - name: Debug publish output
         run: |

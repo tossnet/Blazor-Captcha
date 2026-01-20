@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorWebAssembly", "Blazor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCaptcha.WebAssembly", "BlazorCaptcha.WebAssembly\BlazorCaptcha.WebAssembly.csproj", "{6B1DC544-179A-4DCF-B482-90F239F86681}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCaptcha.Commun", "BlazorCaptcha.Commun\BlazorCaptcha.Commun.csproj", "{37236660-4140-4E5F-AA90-139C53549E6E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCaptcha.Commun", "BlazorCaptcha.Commun\BlazorCaptcha.Commun.csproj", "{F58CE3BC-9174-481A-BF35-781C2EC9C3A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{6B1DC544-179A-4DCF-B482-90F239F86681}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B1DC544-179A-4DCF-B482-90F239F86681}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B1DC544-179A-4DCF-B482-90F239F86681}.Release|Any CPU.Build.0 = Release|Any CPU
-		{37236660-4140-4E5F-AA90-139C53549E6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{37236660-4140-4E5F-AA90-139C53549E6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{37236660-4140-4E5F-AA90-139C53549E6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{37236660-4140-4E5F-AA90-139C53549E6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F58CE3BC-9174-481A-BF35-781C2EC9C3A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F58CE3BC-9174-481A-BF35-781C2EC9C3A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F58CE3BC-9174-481A-BF35-781C2EC9C3A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F58CE3BC-9174-481A-BF35-781C2EC9C3A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

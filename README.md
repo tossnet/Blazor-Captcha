@@ -54,7 +54,15 @@ For client-side and server-side Blazor - add script section to _Host.cshtml (hea
 
 ## <a name="ReleaseNotes"></a>Release Notes
 
-<details open="open"><summary>Version 2.0.0</summary>
+<details open="open"><summary>Version 2.1.0</summary>
+    
+>- Add .NET 10 support
+>- Code optimization
+>- Captcha improvement
+>- Change license to MIT
+</details>
+
+<details><summary>Version 2.0.0</summary>
     
 >- Due to the Skiasharp problem : https://github.com/mono/SkiaSharp/discussions/3185#discussioncomment-12410708,a special component for Blazor WebAssembly has been created. Currently only compatible with .NET 8 for the WASM part
 

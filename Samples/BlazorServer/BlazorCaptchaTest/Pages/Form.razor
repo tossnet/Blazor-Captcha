@@ -47,14 +47,14 @@
 <p>@Captcha</p>
 
 @code{
-    private string Captcha = "";
+    private string Captcha = string.Empty;
     private int CaptchaLetters = 5;
     private bool valided = false;
     private FormModel formModel = new FormModel();
 
     protected override Task OnInitializedAsync()
     {
-       Captcha = BlazorCaptcha.Tools.GetCaptchaWord(CaptchaLetters);
+        Captcha = BlazorCaptcha.Commun.Tools.GetCaptchaWord(CaptchaLetters);
 
         return base.OnInitializedAsync();
     }

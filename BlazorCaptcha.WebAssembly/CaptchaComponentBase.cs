@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
-namespace BlazorCaptcha;
+namespace BlazorCaptcha.Commun;
 
 /// </summary> 
 public abstract class CaptchaComponentBase : ComponentBase

@@ -1,0 +1,38 @@
+﻿
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #292929;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.loader {
+    position: relative;
+    /* https://css-loaders.com/time/ */
+
+    width: 50px;
+    aspect-ratio: 1;
+    color: #f03355;
+    --_c: no-repeat radial-gradient(farthest-side,currentColor 92%,#0000);
+    background: var(--_c) 50% 0 /12px 12px, var(--_c) 50% 100%/12px 12px, var(--_c) 100% 50%/12px 12px, var(--_c) 0 50%/12px 12px, var(--_c) 50% 50%/12px 12px, conic-gradient(from 90deg at 4px 4px,#0000 90deg,currentColor 0) -4px -4px/calc(50% + 2px) calc(50% + 2px);
+    animation: l8 1s infinite linear;
+}
+
+@keyframes l8 {
+    to {
+        transform: rotate(.5turn)
+    }
+}

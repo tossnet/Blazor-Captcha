@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using SkiaSharp.Views.Blazor;
 using System.Runtime.Versioning;
-using System.Threading.Tasks;
+using BlazorCaptcha.Commun;
 
 namespace BlazorCaptcha.WebAssembly;
 
