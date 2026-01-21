@@ -1,0 +1,12 @@
+/*
+  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Opener-Policy: same-origin
+
+/*.wasm
+  Content-Type: application/wasm
+
+/*.br
+  Content-Encoding: br
+
+/*.gz
+  Content-Encoding: gzip

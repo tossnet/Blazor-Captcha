@@ -4,6 +4,8 @@
 		<TargetFramework>net9.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<!-- Ensure native assets are included for WebAssembly -->
+		<WasmNativeWorkload>true</WasmNativeWorkload>
 	</PropertyGroup>
 
 	<ItemGroup>
