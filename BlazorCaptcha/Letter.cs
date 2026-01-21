@@ -3,7 +3,7 @@
 namespace BlazorCaptcha;
 
 /// <summary />
-public class Letter
+internal class Letter
 {
     public int Angle { get; set; }
     public required string Value { get; set; }

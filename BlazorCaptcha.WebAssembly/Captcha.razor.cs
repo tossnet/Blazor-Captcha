@@ -13,7 +13,7 @@ public partial class Captcha : CaptchaComponentBase
     /// Gets or sets the CAPTCHA word.
     /// </summary>
     [Parameter]
-    public string CaptchaWord { get; set; }
+    public string? CaptchaWord { get; set; }
 
     private SKCanvasView skiaView = null!;
 
