@@ -1,6 +1,6 @@
 ﻿using SkiaSharp;
 
-namespace BlazorCaptcha.Commun;
+namespace BlazorCaptcha;
 
 /// <summary />
 public class Letter

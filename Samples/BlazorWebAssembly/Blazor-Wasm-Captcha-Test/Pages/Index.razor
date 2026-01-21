@@ -7,16 +7,16 @@
 
 <Captcha @bind-CaptchaWord="@Captcha" Width="200" Height="50" CharNumber="@CaptchaLetters" /> 
                  
-<p>Expected sequence : @Captcha</p>
+<p>Expected sequence. : @Captcha</p>
 
 @code{
-    private string Captcha  { get; set; } = string.Empty;
-    private int CaptchaLetters = 5;
-    
-    protected override Task OnInitializedAsync()
-    {
-        Captcha = BlazorCaptcha.Tools.GetCaptchaWord(CaptchaLetters);
-        return base.OnInitializedAsync();
-    }
+	private string Captcha  { get; set; } = string.Empty;
+	private int CaptchaLetters = 5;
 
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+
+		Captcha = BlazorCaptcha.Tools.GetCaptchaWord(CaptchaLetters);
+	}
 }

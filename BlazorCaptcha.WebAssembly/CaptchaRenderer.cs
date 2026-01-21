@@ -12,6 +12,82 @@ public static class CaptchaRenderer
     /// </summary>
     private static readonly string[] FontFamilies = ["Open Sans", "Courier", "Arial", "Times New Roman"];
 
+
+    //    public static void Draw(SKCanvas canvas, int Height, int Width, string CaptchaWord)
+    //    {
+    //        Random RandomValue = new();
+    //        List<Letter> Letters = new();
+
+    //        // make sure the canvas is blank
+    //        SKColor _bgColor = new SKColor((byte)RandomValue.Next(70, 100),
+    //                               (byte)RandomValue.Next(60, 80),
+    //                               (byte)RandomValue.Next(50, 90));
+
+    //        canvas.Clear(_bgColor);
+
+    //        var fontFamilies = new string[] { "Open Sans", "Courier", "Arial", "Times New Roman" };
+
+    //        Letters.Clear();
+
+    //        foreach (char c in CaptchaWord)
+    //        {
+    //            var letter = new Letter
+    //            {
+    //                Value = c.ToString(),
+    //                Angle = RandomValue.Next(-15, 25),
+    //                ForeColor = new SKColor((byte)RandomValue.Next(100, 256),
+    //                                        (byte)RandomValue.Next(110, 256),
+    //                                        (byte)RandomValue.Next(90, 256)),
+    //                Family = fontFamilies[RandomValue.Next(0, fontFamilies.Length)],
+    //            };
+
+    //            Letters.Add(letter);
+    //        }
+
+    //        using SKPaint paint = new();
+    //        float x = 10;
+
+    //        foreach (Letter l in Letters)
+    //        {
+    //            using var font = new SKFont
+    //            {
+    //                Typeface = SKTypeface.FromFamilyName(l.Family),
+    //                Size = RandomValue.Next(Height / 2, (Height / 2) + (Height / 4))
+    //            };
+
+    //            font.Edging = SKFontEdging.Antialias;
+    //            paint.Color = l.ForeColor;
+    //            paint.IsAntialias = true;
+
+    //            float textWidth = font.GetGlyphWidths(l.Value, out SKRect[] bounds)[0];
+    //            var y = (Height - bounds[0].Height);
+
+    //            canvas.Save();
+    //            canvas.RotateDegrees(l.Angle, x, y);
+    //            canvas.DrawText(l.Value, x, y, SKTextAlign.Left, font, paint);
+    //#if DEBUG
+    //            //Draw red rectangle to debug:
+    //            var y2 = GetNewY(x, y, bounds[0].Width, l.Angle);
+    //            var paint1 = new SKPaint
+    //            {
+    //                TextSize = 64.0f,
+    //                IsAntialias = true,
+    //                Color = new SKColor(255, 0, 0),
+    //                Style = SKPaintStyle.Stroke
+    //            };
+    //            canvas.DrawRect(bounds[0].Left + x, y2 + bounds[0].Top, bounds[0].Width, bounds[0].Height, paint1);
+    //#endif
+    //            canvas.Restore();
+
+    //            x += textWidth + 10;
+    //        }
+
+    //        canvas.DrawLine(0, RandomValue.Next(0, Height), Width, RandomValue.Next(0, Height), paint);
+    //        canvas.DrawLine(0, RandomValue.Next(0, Height), Width, RandomValue.Next(0, Height), paint);
+    //        paint.Style = SKPaintStyle.Stroke;
+    //        canvas.DrawOval(RandomValue.Next(-Width, Width), RandomValue.Next(-Height, Height), Width, Height, paint);
+    //    }
+
     /// <summary>
     /// Draws a CAPTCHA image on the specified canvas.
     /// </summary>
@@ -65,7 +141,7 @@ public static class CaptchaRenderer
             canvas.DrawText(letter, x, y, SKTextAlign.Left, font, paint);
 
 #if DEBUG
-            DrawDebugRectangle(canvas, x, y, angle, bounds[0]);
+                DrawDebugRectangle(canvas, x, y, angle, bounds[0]);
 #endif
 
             canvas.Restore();
@@ -119,33 +195,6 @@ public static class CaptchaRenderer
             Random.Shared.Next(width / 3, width / 2),
             Random.Shared.Next(height / 3, height / 2),
             ovalPaint);
-    }
-
-    /// <summary>
-    /// Draws distortion elements (wavy lines, noise dots, oval) to make CAPTCHA harder to read by bots.
-    /// </summary>
-    private static void DrawDistortionElements(SKCanvas canvas, SKPaint paint, int height, int width)
-    {
-        // Draw 3-5 wavy Bezier curves with varied colors
-        int lineCount = Random.Shared.Next(3, 6);
-        for (int i = 0; i < lineCount; i++)
-        {
-            DrawWavyLine(canvas, height, width, opacity: 255);
-        }
-
-        // Draw random noise dots
-        DrawNoiseDots(canvas, height, width, dotCount: Random.Shared.Next(30, 50), maxRadius: 3);
-
-        // Draw distortion oval with random color
-        paint.Style = SKPaintStyle.Stroke;
-        paint.StrokeWidth = Random.Shared.Next(1, 3);
-        paint.Color = GetRandomColor(minBrightness: 80, opacity: 255);
-        canvas.DrawOval(
-            Random.Shared.Next(-width / 2, width / 2),
-            Random.Shared.Next(-height / 2, height / 2),
-            Random.Shared.Next(width / 2, width),
-            Random.Shared.Next(height / 2, height),
-            paint);
     }
 
     /// <summary>

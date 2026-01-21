@@ -3,8 +3,8 @@
 	<PropertyGroup>
 		<TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-
+  	<Nullable>enable</Nullable>
+		
 		<!-- Package metadata -->
 		<PackageId>BlazorCaptcha.WebAssembly</PackageId>
 		<Version>2.1.1</Version>
