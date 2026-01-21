@@ -25,28 +25,24 @@ jobs:
         with:
           dotnet-version: '9.x'
 
-      #- name: Restore dependencies
-      #  run: dotnet restore
-
-      #- name: Restore .NET workloads
-      #  run: dotnet workload restore
-
       - name: Remove global.json to allow .NET 9
-        run: rm global.json
+        run: rm -f global.json
       
       - name: Install WebAssembly workload
         run: dotnet workload install wasm-tools
-
-      - name: Check installed workloads (debug)
-        run: dotnet workload list
+      
+      - name: Restore dependencies
+        run: dotnet restore Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/Blazor-Wasm-Captcha-Test.csproj
 
       - name: Dotnet Publish
-        run:  dotnet publish Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/Blazor-Wasm-Captcha-Test.csproj --configuration Release -f net9.0
+        run: dotnet publish Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/Blazor-Wasm-Captcha-Test.csproj --configuration Release -f net9.0 --no-restore
 
-      - name: Debug publish output
+      - name: Verify SkiaSharp WASM files
         run: |
-          echo "Listing output:"
-          ls -R Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/bin/Release/net9.0/publish/
+          echo "=== Checking for SkiaSharp WASM files ==="
+          find Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/bin/Release/net9.0/publish -name "*skia*" -o -name "*Skia*" | head -20
+          echo "=== Checking _framework folder ==="
+          ls -la Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/bin/Release/net9.0/publish/wwwroot/_framework/ | head -30
 
       - name: Change base-tag in index.html to repo name
         run: sed -i 's/<base href="\/" \/>/<base href="\/${{ env.REPO_NAME }}\/" \/>/g' $GITHUB_WORKSPACE/$PUBLISH_FOLDER/index.html
