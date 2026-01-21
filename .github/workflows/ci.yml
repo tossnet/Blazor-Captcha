@@ -31,6 +31,9 @@ jobs:
       #- name: Restore .NET workloads
       #  run: dotnet workload restore
 
+      - name: Remove global.json to allow .NET 9
+        run: rm -f global.json
+
       - name: Install WebAssembly workload
         run: dotnet workload install wasm-tools
 
