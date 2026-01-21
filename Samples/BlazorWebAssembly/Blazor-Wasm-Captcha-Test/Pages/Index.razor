@@ -7,7 +7,7 @@
 
 <Captcha @bind-CaptchaWord="@Captcha" Width="200" Height="50" CharNumber="@CaptchaLetters" /> 
                  
-<p>@Captcha</p>
+<p>Expected sequence : @Captcha</p>
 
 @code{
     private string Captcha  { get; set; } = string.Empty;
