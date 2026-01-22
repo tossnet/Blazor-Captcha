@@ -1,0 +1,67 @@
+name: "🔧 SkiaSharp WebAssembly Fix Proposal"
+description: "Propose a fix for the SkiaSharp + Blazor WebAssembly deployment issue on GitHub Pages"
+title: "[SkiaSharp WASM Fix]: "
+labels: ["help wanted", "bug", "skiasharp", "webassembly"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🙏 Thank you for helping!
+        
+        We're experiencing a critical issue with SkiaSharp on Blazor WebAssembly when deployed to GitHub Pages:
+        ```
+        Uncaught ManagedError: TypeInitialization_Type, SkiaSharp.SKImageInfo
+        ```
+        
+        The component works perfectly in local debug/release but fails on GitHub Pages deployment.
+        
+        **Related discussion:** https://github.com/mono/SkiaSharp/discussions/3185
+
+  - type: textarea
+    id: solution-description
+    attributes:
+      label: Proposed Solution
+      description: Describe your proposed fix or workaround
+      placeholder: "Explain what you found and how it could solve the issue..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to implement the fix
+      description: Provide step-by-step instructions to implement your solution
+      placeholder: |
+        1. Update package X to version Y
+        2. Modify file Z...
+        3. Add configuration...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tested
+    attributes:
+      label: Have you tested this fix?
+      options:
+        - "Yes - tested on GitHub Pages deployment"
+        - "Yes - tested locally only"
+        - "No - theoretical solution"
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment details
+      description: Your testing environment (if applicable)
+      placeholder: |
+        - .NET version: 
+        - SkiaSharp version:
+        - Browser:
+        - OS:
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Any other relevant information, links, or screenshots
