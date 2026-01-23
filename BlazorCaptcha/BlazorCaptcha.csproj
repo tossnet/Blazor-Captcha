@@ -7,7 +7,7 @@
 
 		<!-- Package metadata -->
 		<PackageId>BlazorCaptcha</PackageId>
-		<Version>2.1.1</Version>
+		<Version>2.1.2</Version>
 		<Authors>Christophe Peugnet</Authors>
 		<Copyright>Copyright 2020-2026</Copyright>
 		<Description>Generates a captcha image for a Blazor Server application. For use with .NET 8.0 or higher Blazor applications</Description>
@@ -60,7 +60,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\BlazorCaptcha.Commun\BlazorCaptcha.Commun.csproj" />
+		<Compile Include="..\BlazorCaptcha.Commun\Tools.cs" Link="Tools.cs" />
 	</ItemGroup>
 	
 </Project>

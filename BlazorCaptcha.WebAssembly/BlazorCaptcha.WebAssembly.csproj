@@ -61,7 +61,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\BlazorCaptcha.Commun\BlazorCaptcha.Commun.csproj" />
+		<Compile Include="..\BlazorCaptcha.Commun\Tools.cs" Link="Tools.cs" />
 	</ItemGroup>
 
 </Project>

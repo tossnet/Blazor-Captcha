@@ -68,7 +68,14 @@ For client-side and server-side Blazor - add script section to _Host.cshtml (hea
 
 ## <a name="ReleaseNotes"></a>Release Notes
 
-<details open="open"><summary>Version 2.1.0</summary>
+
+<details open="open"><summary>Version 2.1.2</summary>
+    
+>- Fix NuGet packaging: `BlazorCaptcha.Commun` is now embedded directly (no separate package dependency)
+>- Resolves error `NU1101: Unable to find package BlazorCaptcha.Commun`
+</details>
+
+<details><summary>Version 2.1.0</summary>
     
 >- Add .NET 10 support
 >- Code optimization
