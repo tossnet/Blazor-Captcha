@@ -41,7 +41,7 @@ jobs:
         run: dotnet workload list
 
       - name: Dotnet Publish
-        run: dotnet publish --configuration Release -f net10.0
+        run: dotnet publish Samples/BlazorWebAssembly/Blazor-Wasm-Captcha-Test/Blazor-Wasm-Captcha-Test.csproj --configuration Release -f net10.0
 
       - name: Debug publish output
         run: |
