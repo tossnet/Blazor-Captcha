@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blazor-Wasm-Captcha</title>
     <link rel="preload" id="webassembly" />
     <base href="/" />
     <link rel="icon" type="image/png" href="icon.png" />
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="css/app.css" rel="stylesheet" />
     <link href="Blazor-Wasm-Captcha-Test.styles.css" rel="stylesheet" />
     <link href="css/loader.css" rel="stylesheet" />
@@ -16,6 +16,10 @@
     <link href="_content/BlazorCaptcha.WebAssembly/captcha.css" rel="stylesheet" />
     <script type="importmap"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link href="_content/Brism/prism.css" rel="stylesheet" />
+    <link href="_content/Brism/prism-vsc-dark-plus.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -26,7 +30,7 @@
 
             </div>
         </div>
-        
+
     </div>
 
     <div id="blazor-error-ui">
@@ -35,6 +39,9 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly#[.{fingerprint}].js" autostart="true"></script>
+
+    <script src="_content/Brism/prism.js"></script>
+    <script type="module" src="_content/Brism/prismInterop.js"></script>
 </body>
 
 </html>

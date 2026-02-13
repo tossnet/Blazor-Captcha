@@ -6,20 +6,7 @@ Generates a captcha image for a Blazor Server or Webassembly application.
 ## Live demo
  Blazor webassembly :  <a href="https://tossnet.github.io/Blazor-Captcha/" target="_blank">[https://tossnet.github.io/Blazor-Captcha/](https://tossnet.github.io/Blazor-Captcha/)</a> 
 
-> [!WARNING]
-> **⚠️ WebAssembly Demo Currently Broken ⚠️**
-> 
-> The live demo on GitHub Pages is currently not working due to a SkiaSharp initialization error:
-> ```
-> Uncaught ManagedError: TypeInitialization_Type, SkiaSharp.SKImageInfo
-> ```
-> 
-> **The component works correctly locally** (both debug and release), but fails when deployed to GitHub Pages. This issue appeared after version 2.0.2 and persists despite rollback attempts.
-> 
-> **🙏 Help Wanted:** If you have experience with SkiaSharp + Blazor WebAssembly deployment issues and find a solution, please [open an issue using our template](https://github.com/tossnet/Blazor-Captcha/issues/new?template=skiasharp-wasm-fix.yml) or submit a PR - it would be greatly appreciated!
-> 
-> Related discussion: https://github.com/mono/SkiaSharp/discussions/3185
- 
+
 ![Blazor Captcha](https://github.com/tossnet/Blazor-Captcha/blob/master/blazor-captcha.png)
 
 
@@ -46,9 +33,6 @@ For client-side and server-side Blazor - add script section to _Host.cshtml (hea
 @page "/"
 @using BlazorCaptcha
 
-<h3>Hello, world!</h3>
-
-
 <Captcha @bind-CaptchaWord="@Captcha" CharNumber="@CaptchaLetters" />
 
 <p>@Captcha</p>
@@ -68,8 +52,14 @@ For client-side and server-side Blazor - add script section to _Host.cshtml (hea
 
 ## <a name="ReleaseNotes"></a>Release Notes
 
+<details open="open"><summary>Version 3.0.0</summary>
+    
+>-Remove .NET 8.0 support
+>- Update dependencies to .NET 9.0 and .NET 10.0 versions
+>- Update dependencies to latest SkiaSharp versions 3.119.2
+</details>
 
-<details open="open"><summary>Version 2.1.2</summary>
+<details><summary>Version 2.1.2</summary>
     
 >- Fix NuGet packaging: `BlazorCaptcha.Commun` is now embedded directly (no separate package dependency)
 >- Resolves error `NU1101: Unable to find package BlazorCaptcha.Commun`

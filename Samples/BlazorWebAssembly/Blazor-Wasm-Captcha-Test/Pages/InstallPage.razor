@@ -1,0 +1,44 @@
+﻿@page "/install"
+
+<PageTitle>Installation</PageTitle>
+
+<h1>Installation</h1>
+
+<CodeBlock Language="CodeLanguage.Bash"  
+		   Code=@(@"
+dotnet add package BlazorCaptcha
+		   	 ") />
+
+<p>For client-side (<b>index.html</b>) and server-side Blazor (<b>App.razor</b>) - add script section (head section)</p>
+
+<CodeBlock Language="CodeLanguage.Html" 
+           Code=@(@"
+<link href=""_content/BlazorCaptcha/captcha.css"" rel=""stylesheet"" />
+            ") />
+
+<h3>Basic use</h3>
+
+
+
+<CodeBlock Language="CodeLanguage.Razor" 
+		   Code=@(@"
+@using BlazorCaptcha
+
+<Captcha @bind-CaptchaWord=""@Captcha"" CharNumber=""@CaptchaLetters"" />
+
+<p>@Captcha</p>
+		   	 ") />
+
+				
+<CodeBlock Language="CodeLanguage.CSharp"
+		   Code=@(@"
+private string Captcha = """";
+private int CaptchaLetters = 5;
+
+protected override Task OnInitializedAsync()
+{
+    Captcha = BlazorCaptcha.Commun.Tools.GetCaptchaWord(CaptchaLetters);
+
+    return base.OnInitializedAsync();
+}
+		   	 	 ") />
